@@ -1,0 +1,65 @@
+---
+title: "AIDSVu Descriptive Analysis"
+author: "Nicole Hood"
+date: '2022-10-28'
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r, set-chunk-opts, echo = FALSE, warning = FALSE}
+library(knitr)
+opts_chunk$set(
+  echo = FALSE, warning = FALSE, message = FALSE
+)
+```
+
+```{r, load-data}
+library(here)
+here::i_am("report.Rmd")
+
+data <- readRDS(
+  file = here::here("output/data_clean.rds")
+)
+```
+
+# Introduction 
+AIDSVu is an interactive online mapping tool that visualizes the impact of the HIV epidemic on communities across the United States, allowing users to better understand HIV where they live. The data used to create the online mapping tool is what is being presented here today. It contains 2018 HIV Care Continuum data (e.g., late diagnoses, linkage to care, receipt of care, and viral suppression) for 36 U.S. cities. Those cities includde the following: Atlanta, GA; Austin, TX; Baltimore, MD; Baton Rouge, LA; Birmingham, AL; Bridgeport, CT; Charleston, SC; Charlotte, NC; Chicago, IL; Columbia, SC; Dallas, TX; Denver, CO; Fort Lauderdale, FL; Fort Worth, TX; Hartford, CT; Hampton Roads, VA; Houston, TX; Jacksonville, FL; Las Vegas, NV; Miami, FL; Milwaukee, WI; New Orleans, LA; Newark, NJ; New Haven, CT; New York City, NY; Orlando, FL; Philadelphia, PA; Providence, RI; Phoenix, AZ; Raleigh, NC; Richmond, VA; San Antonio, TX; Seattle, WA; Tampa, FL; Washington D.C.; West Palm Beach, FL. The objective of the analsis was to present overall HIV prevalence and new HIV diagnoses for the 36 cities in 2018, as well as to visualize each of the 4 HIV care continuum steps for each city grouped by region that the city belongs to.
+
+# Descriptive Analysis
+
+### Table One Description
+Below, a Table One has been included that describes the basic demographic characteristics across all 36 cities combined. Overall, 447, 371 people across the 36 cities were living with HIV in 2018. Of those, 19% were newly diagnosed with HIV. Much higher percentage of prevalent and new diagnoses were attributed to women. Across both prevalent and new diagnoses, Black people had the highest percentages of diagnoses. Other racial/ethnic groups contributed to the overall numbers; however, there data was not shared due to privacy/low count concerns. 
+
+```{r, table1}
+table_one <- readRDS(
+  file = here::here("output/table_one.rds")
+)
+table_one
+```
+
+## Graphical analysis
+
+### Figures Description
+The below 4 figures depict the percentages for each of the 4 HIV care continuum steps by race for each city further grouped into the 4 U.S. regions. The first figure depicts late diagnoses. For this care continuum step, the lower the percentage, the better. Figure 1 depicts percentages of late diagnoses by gender within each U.S. region. Across all regions, it seemed like females had higher percentages of late diagnoses. The distribution of percentages of late diagnoses for males and females across regions was fairly similar. Figure 2 depicts percentages of linkages to care by gender within each region. Males and females across all regions seemed to have similar percentages. The South had the lowest percentags of linkages to care compared to the other regions. Figure 3 depicts percentages of receipt of care by gender within each region. The Northeast seemed to have slightly lower percentages of people receiving care compared to that of the other regions. Figure 4 depicts percentages of viral suppression by gender within each region. Females and males had similar percentages across each region.
+
+```{r, plot-data}
+#| fig.align = "center",
+#| out.width = "600px"
+knitr::include_graphics(
+  here::here("output/ldx.png")
+)
+
+knitr::include_graphics(
+  here::here("output/lc.png")
+)
+
+knitr::include_graphics(
+  here::here("output/rc.png")
+)
+
+knitr::include_graphics(
+  here::here("output/vs.png")
+)
+```
+
