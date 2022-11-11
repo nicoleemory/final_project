@@ -27,3 +27,7 @@ output/vs.png: code/02_make_plot.R output/data_clean.rds
 .PHONY: clean
 clean:
 	rm -f output/*.rds && rm -f output/*.png
+	
+.PHONY: install
+install: 
+	Rscript -e "renv::restore(prompt = FALSE)"

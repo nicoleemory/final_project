@@ -49,6 +49,8 @@ Date: 10/28/2022
 - it contains rules for building the report.html, the rds files that 
   are used to save the relevant rds data, rds table, and the 4 png figures
 - it also removes any .rds and .png files after they are used
+- it also includes a phony rule that is called "install" that synchronizes package repositories with the lockfile
+- if you want to run any of the make rules on their own, you simply have to type "make" and the name of the rule
 
 `report.Rmd`
 - this is the Rmd that will generate the html final report for the project
