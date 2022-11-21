@@ -1,8 +1,9 @@
-##########################################################
-Project: AIDSVu Final Project
-Author: Nicole Hood
-Date: 10/28/2022
-##########################################################
+# Project: AIDSVu Final Project
+
+**Author:** Nicole Hood
+**Date:** 10/28/2022
+
+------------------------
 
 # Git Repository Organization
 
