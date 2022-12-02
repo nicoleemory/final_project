@@ -38,6 +38,6 @@ project_image: Dockerfile $(PROJECTFILES)
 	touch $@
 
 # rule to build the report automatically in our container
-final_report/report.html: project_image
-	docker run -v //c/Users/nthood/Documents/INFO_550/final_proj/report:/final_proj/report 
+report/report.html:
+	docker run -v "/$$(pwd)/report":/final_proj/report nicoledocker1/r_proj 
 	
