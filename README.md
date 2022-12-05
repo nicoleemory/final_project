@@ -9,17 +9,17 @@
 # Docker Container
 To reproduce this report, you can download the docker image that is available on docker hub at: https://hub.docker.com/repository/docker/nicoledocker1/r_proj. To build the container, use "docker build -t r_proj .". Then to run the container, use "docker run -it r_proj bash". Once you are working within the image, use "make report.html" to build the compiled html document for the report that will be saved within the report folder within the final_proj folder.
 
-
 # Git Repository Organization
 
 `README.md`
-- contains info about git repository
+- contains info about git repository, dockerfile, and docker image
 
 `data`
 - contains all data for the project
--- cities.csv
--- city.csv
--- city_minus.csv
+-- cities.csv: this contains all HIV-related care continuum data
+-- city.csv: this contains data that is available by region
+-- city_minus.csv: this contains data that does not include cities that do not 
+                   have all data reported
 
 `code/00_clean_data.R`
 - loads the city.csv file that contains HIV Care Continuum data for 36 U.S. cities
@@ -51,12 +51,14 @@ To reproduce this report, you can download the docker image that is available on
 - this file contains all the rule for building the report
 - rather than going into each of the individual R scripts and running them 
 - one by one, you can just type "make" and this file will go through its
-  rules that will run each script and generate the final report
+  rules that will run each script and generate the final report; it will run the 
+  docker image, r_proj, which contains a replica of the local computer,
+  including the final report
 - it contains rules for building the report.html, the rds files that 
   are used to save the relevant rds data, rds table, and the 4 png figures
 - it also removes any .rds and .png and html files after they are used
 - if you want to run any of the make rules on their own, you simply have to type "make" and the name of the rule
-- it also contains docker-associated ruls that allow the report to build within the docker container's image within the report folder
+- it also contains docker-associated rules that allow the report to build within the docker container's image within the report folder
 
 
 `report.Rmd`
