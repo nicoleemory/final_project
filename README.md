@@ -54,6 +54,8 @@ To reproduce this report, you can download the docker image that is available on
   rules that will run each script and generate the final report; it will run the 
   docker image, r_proj, which contains a replica of the local computer,
   including the final report
+ - to run the report within the Docker container, type "make report.html"
+ - to run the report on your local command line, type "make report/report.html"
 - it contains rules for building the report.html, the rds files that 
   are used to save the relevant rds data, rds table, and the 4 png figures
 - it also removes any .rds and .png and html files after they are used
